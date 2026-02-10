@@ -12,6 +12,8 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(image_transport REQUIRED)
 
 
 #--- Include
@@ -30,15 +32,15 @@ add_executable(node_baumer_ir_cam
   src/node_baumer_ir_cam.cpp
 )
 ament_target_dependencies(node_baumer_ir_cam
-  # rclcpp 
-  # std_msgs 
-  # sensor_msgs 
+  rclcpp 
+  std_msgs 
+  sensor_msgs 
 )
 target_link_libraries(node_baumer_ir_cam
   neoapi_cpp
   ${OpenCV_LIBS}
-  # cv_bridge::cv_bridge
-  # image_transport::image_transport
+  cv_bridge::cv_bridge
+  image_transport::image_transport
 )
 install(TARGETS
 	node_baumer_ir_cam
