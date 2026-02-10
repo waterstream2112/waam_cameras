@@ -1,6 +1,5 @@
 baumer_neoapi:
   topic_out_raw_image:        "/baumer_ir/raw_image"
-  topic_out_thermal_image:    "/baumer_ir/thermal_image"
   FrameRate:                  30.0
   ExposureAuto:               "Off"       # Options: On, Off, Once, Continuous
   WhiteBalance:               "Manual"    # Options: Auto, Manual
