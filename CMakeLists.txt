@@ -35,6 +35,7 @@ ament_target_dependencies(node_baumer_ir_cam
   rclcpp 
   std_msgs 
   sensor_msgs 
+  cv_bridge
 )
 target_link_libraries(node_baumer_ir_cam
   neoapi_cpp
