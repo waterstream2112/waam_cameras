@@ -30,6 +30,7 @@ arecord -l
 # Important: Note the card number and device number (e.g., card 1, device 0 becomes hw:1,0).
 
 ros2 run audio_common audio_capturer_node --ros-args -p device_name:="plughw:2,0" -p channels:=2 -p rate:=48000 -p format:=16
+ros2 run audio_capture audio_capture_node --ros-args -p device_name:="plughw:3,0" -p channels:=2 -p rate:=48000
 
 # device: Set this to the card number from arecord -l.
 

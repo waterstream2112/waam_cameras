@@ -8,29 +8,31 @@ windows:
   - Optris:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
-        - ros2 run optris_drivers2 optris_imager_node optris.xml
+        - ros2 run optris_drivers2 optris_imager_node ${HOME}/ros2_ws/src/waam_cameras/optris.xml
         - ros2 run optris_drivers2 optris_colorconvert_node
         - 'ros2 service call palette optris_drivers2/srv/Palette "{palette : 6}"'
         -
   - Baumer:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
-        - ros2 run waam_baumer_camera baumer_camera_node --ros-args --params-file src/nemeaeus2/nms_sensors_input/config/waam_baumer_camera_params.yaml
+        # - ros2 run waam_baumer_camera baumer_camera_node --ros-args --params-file src/nemeaeus2/nms_sensors_input/config/waam_baumer_camera_params.yaml
+        ros2 launch waam_cameras node_baumer_ir_cam.launch.py
 
   - Webcam:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
-        ros2 run v4l2_camera v4l2_camera_node --ros-args -p video_device:="/dev/video2" -p image_size:="[1280,720]" -p pixel_format:="MJPG"
+        ros2 run v4l2_camera v4l2_camera_node --ros-args -p video_device:="/dev/video2" -p image_size:="[1280,720]"
 
   - Microphone:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
         - ros2 run audio_common audio_capturer_node --ros-args -p device_name:="plughw:2,0" -p channels:=2 -p rate:=48000 -p format:=16
+        # - ros2 run audio_capture audio_capture_node --ros-args -p device_name:="plughw:3,0" -p channels:=2 -p rate:=48000
 
   - Visualisation:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
-        - rviz2 -d src/nemeaeus2/nms_sensors_input/config/waam_sensors_input.rviz
+        - rviz2 -d ${HOME}/ros2_ws/src/waam_cameras/rviz/waam_sensors_input.rviz
 
 attach: true              # Automatically attach to the session
 tmux_options: "-2"        # Force Tmux to use 256-color mode
