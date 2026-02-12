@@ -8,8 +8,8 @@ windows:
   - Optris:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
-        - ros2 run optris_drivers2 optris_imager_node ${HOME}/ros2_ws/src/waam_cameras/optris.xml --ros-args -r /thermal_image_view:=/optris/thermal_image
-        - ros2 run optris_drivers2 optris_colorconvert_node
+        - ros2 run optris_drivers2 optris_imager_node ${HOME}/ros2_ws/src/waam_cameras/optris.xml
+        - ros2 run optris_drivers2 optris_colorconvert_node --ros-args -r /thermal_image_view:=/Optris/thermal_image_view -r /thermal_image:=/Optris/thermal_image
         - 'ros2 service call palette optris_drivers2/srv/Palette "{palette : 6}"'
         -
   - Baumer:         # Name of the first window
@@ -21,7 +21,7 @@ windows:
   - Webcam:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
-        ros2 run v4l2_camera v4l2_camera_node --ros-args -p video_device:="/dev/video2" -p image_size:="[1280,720]"
+        ros2 run v4l2_camera v4l2_camera_node --ros-args -p video_device:="/dev/video4" -p image_size:="[1280,720]" -r /image_raw:=/BenQ/raw_image
 
   - Microphone:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)

@@ -1,7 +1,7 @@
 # baumer_neoapi
 node_baumer_ir_cam:
   ros__parameters:
-    topic_out_raw_image:        "/baumer_ir/raw_image"
+    topic_out_raw_image:        "/Baumer_ir/raw_image"
     FrameRate:                  30.0
     ExposureAuto:               "Continuous"       # Options: On, Off, Once, Continuous
     WhiteBalance:               "Manual"    # Options: Auto, Manual

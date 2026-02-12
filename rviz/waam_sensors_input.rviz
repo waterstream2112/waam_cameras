@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /BenQ webcam1/Status1
       Splitter Ratio: 0.5
     Tree Height: 707
   - Class: rviz_common/Selection
@@ -59,7 +60,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: ""
+        Value: /thermal_image_view
       Value: true
     - Class: rviz_default_plugins/Image
       Enabled: true
@@ -73,7 +74,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: ""
+        Value: /baumer_ir/raw_image
       Value: true
     - Class: rviz_default_plugins/Image
       Enabled: true
@@ -87,7 +88,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: ""
+        Value: /BenQ/raw_image
       Value: true
   Enabled: true
   Global Options:
