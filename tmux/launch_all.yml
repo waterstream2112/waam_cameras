@@ -8,7 +8,7 @@ windows:
   - Optris:         # Name of the first window
       layout: tiled  # Tmux layout (e.g., tiled, main-vertical, even-horizontal)
       panes:
-        - ros2 run optris_drivers2 optris_imager_node ${HOME}/ros2_ws/src/waam_cameras/optris.xml
+        - ros2 run optris_drivers2 optris_imager_node ${HOME}/ros2_ws/src/waam_cameras/optris.xml --ros-args -r /thermal_image_view:=/optris/thermal_image
         - ros2 run optris_drivers2 optris_colorconvert_node
         - 'ros2 service call palette optris_drivers2/srv/Palette "{palette : 6}"'
         -
